@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
+from selenium.webdriver.firefox.options import Options
 import os
 from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException, ElementNotInteractableException
 
@@ -13,6 +14,13 @@ from selenium.common.exceptions import TimeoutException, ElementClickIntercepted
 # Logging settings
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
+
+def create_firefox_driver():
+    options = Options()
+    options.headless = True  # Without GUI
+    driver = webdriver.Firefox(options=options)
+    return driver
 
 
 @pytest.fixture()
@@ -31,7 +39,7 @@ def switch_to_new_window_home(browser):
 
 @pytest.fixture()
 def browser():
-    browser = webdriver.Firefox()
+    browser = create_firefox_driver()
     browser.get('https://www.newsinlevels.com/')
     browser.maximize_window()
     try:
@@ -60,7 +68,7 @@ def browser():
 
 @pytest.fixture()
 def driver():
-    driver = webdriver.Firefox()
+    driver = create_firefox_driver()
     driver.get('https://www.daysinlevels.com/?utm_source=NiLMenu')
     driver.maximize_window()
     try:
@@ -92,7 +100,7 @@ def driver():
 
 @pytest.fixture()
 def book_1():
-    book_1 = webdriver.Firefox()
+    book_1 = create_firefox_driver()
     book_1.get('https://www.robinsoncrusoeinlevels.com/?utm_source=NiLMenu')
     time.sleep(2)
     book_1.maximize_window()
@@ -109,7 +117,7 @@ def book_1():
 
 @pytest.fixture()
 def grammar():
-    grammar = webdriver.Firefox()
+    grammar = create_firefox_driver()
     grammar.get('https://www.grammarinlevels.com/?utm_source=NiLMenu')
     time.sleep(2)
     grammar.maximize_window()
@@ -140,7 +148,7 @@ def switch_to_new_window(grammar):
 
 @pytest.fixture()
 def book_2():
-    book_2 = webdriver.Firefox()
+    book_2 = create_firefox_driver()
     book_2.get('https://www.thelittleprinceinlevels.com/?utm_source=NiLMenu')
     time.sleep(2)
     book_2.maximize_window()
@@ -157,7 +165,7 @@ def book_2():
 
 @pytest.fixture()
 def learn():
-    learn = webdriver.Firefox()
+    learn = create_firefox_driver()
     learn.get('https://www.howtolearnenglishinlevels.com/?utm_source=NiLMenu')
     time.sleep(2)
     learn.maximize_window()
@@ -174,7 +182,7 @@ def learn():
 
 @pytest.fixture()
 def video():
-    video = webdriver.Firefox()
+    video = create_firefox_driver()
     video.get('https://www.videosinlevels.com/?utm_source=NiLMenu')
     time.sleep(2)
     video.maximize_window()
