@@ -14,7 +14,14 @@ jobs:
         with:
           python-version: "3.10"
       - name: Setup Firefox
-        run: sudo apt-get install firefox
+        run: sudo apt-get install -y firefox
+      - name: Install Geckodriver
+        run: |
+            GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+            wget https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
+            tar -xvzf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
+            chmod +x geckodriver
+            sudo mv geckodriver /usr/local/bin
       - name: Install Dependencies
         run: pip install -r requirements.txt
       - name: Run tests
