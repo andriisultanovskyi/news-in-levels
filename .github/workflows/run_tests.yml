@@ -42,7 +42,7 @@ jobs:
 
       - name: test_home_page
         if: "github.event.inputs.deployment_target == 'test_home_page'"
-        run: pytest test_home_page.py
+        run: pytest news-in-levels/news-in-levels/test_home_page.py
 
       - name: test_days_page
         if: "github.event.inputs.deployment_target == 'test_days_page'"
