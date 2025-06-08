@@ -25,6 +25,7 @@ def create_driver():
     options.add_argument("--disable-search-engine-choice-screen")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--disable-popup-blocking")
+    options.add_argument("--user-data-dir=/tmp/selenium-user-data")
     # options.add_argument("--headless")
     # options.add_argument("--headless=new")
     options.add_argument("--headless=old")
