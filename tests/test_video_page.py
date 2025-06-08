@@ -4,6 +4,8 @@ from conftest import click_and_wait_url
 
 # The test checks the click of the "Home" link and goes to the 'Videos in levels' page
 def test_click_link_home(video):
+    print(video.current_url)
+    print(video.page_source)
     click_and_wait_url(
         video,
         '//a[@href="/" and text()="Home"]',
@@ -24,13 +26,16 @@ def test_click_link_home(video):
 def test_click_link_levels(video, level, url_part):
     xpath = f"//a[text()='Level {level}']"
     expected_url = f"https://www.videosinlevels.com/category/level-{level}/"
+    print(video.current_url)
+    print(video.page_source)
     click_and_wait_url(video, xpath, url_part, expected_url)
 
 
 # The test checks the click of the "Older posts" button and goes to the 'Page 2'
 def test_click_button_older_posts(video):
     video.get("https://www.videosinlevels.com/")
-
+    print(video.current_url)
+    print(video.page_source)
     click_and_wait_url(
         video,
         "//a[contains(@href, '/page/2')]",
