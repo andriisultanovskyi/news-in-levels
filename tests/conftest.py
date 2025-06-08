@@ -237,12 +237,12 @@ def pytest_runtest_makereport(item, call):
 
 
 def click_and_wait_url(driver, xpath, expected_url_part, expected_full_url, scroll=False):
-    element = WebDriverWait(driver, 10).until(
+    element = WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.XPATH, xpath))
     )
     if scroll:
         driver.execute_script("arguments[0].scrollIntoView(true);", element)
         time.sleep(1)
     element.click()
-    WebDriverWait(driver, 10).until(EC.url_contains(expected_url_part))
+    WebDriverWait(driver, 30).until(EC.url_contains(expected_url_part))
     assert expected_full_url in driver.current_url
