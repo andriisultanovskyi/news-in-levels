@@ -97,4 +97,4 @@ jobs:
 
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
-        run: pytest test/test_search.py
+        run: pytest tests/test_search.py
