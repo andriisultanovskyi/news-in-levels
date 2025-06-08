@@ -68,9 +68,6 @@ jobs:
         if: "github.event.inputs.deployment_target == 'test_video_page'"
         run: pytest tests/test_video_page.py
 
-      - name: test_video_page
-        if: "github.event.inputs.deployment_target == 'test_video_page'"
-        run: pytest tests/test_video_page.py
 
       - name: test_dropdown_menu_home_page
         if: "github.event.inputs.deployment_target == 'test_dropdown_menu_home_page'"
@@ -83,3 +80,9 @@ jobs:
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
         run: pytest tests/test_search.py
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: ./screenshots

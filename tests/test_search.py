@@ -21,6 +21,8 @@ def test_search_functionality(browser, query):
     search_input.clear()
     search_input.send_keys(query)
     WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.ID, "searchsubmit")))
+    print(browser.current_url)
+    print(browser.page_source)
     search_button.click()
     WebDriverWait(browser, 10).until(lambda driver: query in driver.current_url) # Waiting for URL change
     expected_url = f"https://www.newsinlevels.com/?s={query}" # Form the expected URL
@@ -43,6 +45,8 @@ def test_search_empty_query(browser):
     search_input = browser.find_element(By.NAME, "s")
     search_button = browser.find_element(By.ID, "searchsubmit")
     search_input.clear()
+    print(browser.current_url)
+    print(browser.page_source)
     search_button.click()
     browser.implicitly_wait(5)
     browser.find_elements(By.NAME, 'Search Result For')
