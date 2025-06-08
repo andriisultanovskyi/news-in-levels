@@ -83,7 +83,7 @@ jobs:
         run: pytest test_dropdown_days_page.py
 
       - name: where is test_search
-        if: "github.event.inputs.deployment_target == 'where_test_search'"
+        if: "github.event.inputs.deployment_target == 'whereis_test_search'"
         run: where is test_search.py
 
       - name: pwd
