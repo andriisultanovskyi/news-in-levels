@@ -19,6 +19,8 @@ on:
           - test_dropdown_menu_home_page
           - test_dropdown_days_page
           - test_search
+          - whereis_test_search
+          - pwd
 
 
 jobs:
@@ -81,11 +83,11 @@ jobs:
         run: pytest test_dropdown_days_page.py
 
       - name: where is test_search
-        if: "github.event.inputs.deployment_target == 'test_search'"
+        if: "github.event.inputs.deployment_target == 'where_test_search'"
         run: where is test_search.py
 
-      - name: current dir
-        if: "github.event.inputs.deployment_target == 'test_search'"
+      - name: pwd
+        if: "github.event.inputs.deployment_target == 'pwd'"
         run: pwd
 
       - name: test_search
