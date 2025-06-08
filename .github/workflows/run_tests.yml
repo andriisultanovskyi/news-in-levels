@@ -80,6 +80,14 @@ jobs:
         if: "github.event.inputs.deployment_target == 'test_dropdown_days_page'"
         run: pytest test_dropdown_days_page.py
 
+      - name: where is test_search
+        if: "github.event.inputs.deployment_target == 'test_search'"
+        run: where is test_search.py
+
+      - name: current dir
+        if: "github.event.inputs.deployment_target == 'test_search'"
+        run: pwd
+
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
         run: pytest news-in-levels/news-in-levels/test_search.py
