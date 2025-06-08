@@ -42,43 +42,43 @@ jobs:
 
       - name: test_home_page
         if: "github.event.inputs.deployment_target == 'test_home_page'"
-        run: pytest test_home_page.py
+        run: pytest tests/test_home_page.py
 
       - name: test_days_page
         if: "github.event.inputs.deployment_target == 'test_days_page'"
-        run: pytest test_days_page.py
+        run: pytest tests/test_days_page.py
 
       - name: test_book_1_page
         if: "github.event.inputs.deployment_target == 'test_book_1_page'"
-        run: pytest test_book_1_page.py
+        run: pytest tests/test_book_1_page.py
 
       - name: test_grammar_page
         if: "github.event.inputs.deployment_target == 'test_grammar_page'"
-        run: pytest test_grammar_page.py
+        run: pytest tests/test_grammar_page.py
 
       - name: test_test_book_2_page
         if: "github.event.inputs.deployment_target == 'test_book_2_page'"
-        run: pytest test_book_2_page.py
+        run: pytest tests/test_book_2_page.py
 
       - name: test_learn_page
         if: "github.event.inputs.deployment_target == 'test_learn_page'"
-        run: pytest test_learn_page.py
+        run: pytest tests/test_learn_page.py
 
       - name: test_video_page
         if: "github.event.inputs.deployment_target == 'test_video_page'"
-        run: pytest test_video_page.py
+        run: pytest tests/test_video_page.py
 
       - name: test_video_page
         if: "github.event.inputs.deployment_target == 'test_video_page'"
-        run: pytest test_video_page.py
+        run: pytest tests/test_video_page.py
 
       - name: test_dropdown_menu_home_page
         if: "github.event.inputs.deployment_target == 'test_dropdown_menu_home_page'"
-        run: pytest test_dropdown_home_page.py
+        run: pytest tests/test_dropdown_home_page.py
 
       - name: test_dropdown_days_page
         if: "github.event.inputs.deployment_target == 'test_dropdown_days_page'"
-        run: pytest test_dropdown_days_page.py
+        run: pytest tests/test_dropdown_days_page.py
 
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
