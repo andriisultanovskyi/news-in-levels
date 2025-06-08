@@ -21,6 +21,7 @@ on:
           - test_search
           - whereis_test_search
           - pwd
+          - ls_la
 
 
 jobs:
@@ -89,6 +90,10 @@ jobs:
       - name: pwd
         if: "github.event.inputs.deployment_target == 'pwd'"
         run: pwd
+
+      - name: ls_la
+        if: "github.event.inputs.deployment_target == 'ls_la'"
+        run: ls -la
 
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
