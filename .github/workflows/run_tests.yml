@@ -84,7 +84,7 @@ jobs:
 
       - name: where is test_search
         if: "github.event.inputs.deployment_target == 'whereis_test_search'"
-        run: where is test_search.py
+        run: whereis test_search.py
 
       - name: pwd
         if: "github.event.inputs.deployment_target == 'pwd'"
