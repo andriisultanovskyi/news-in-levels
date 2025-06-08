@@ -92,4 +92,4 @@ jobs:
 
       - name: test_search
         if: "github.event.inputs.deployment_target == 'test_search'"
-        run: pytest news-in-levels/news-in-levels/test_search.py
+        run: pytest test/test_search.py
